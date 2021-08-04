@@ -1,0 +1,88 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+
+// body {
+
+// }
+
+.photo {
+  background-image: url('/assets/chess.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 1200px;
+  h1 {
+    font-size: 7rem;
+    color: white;
+    padding-top: 10%;
+    padding-left: 10%;
+  }
+
+  button {
+    margin-top: 15rem;
+    margin-right: 20rem;
+    float: right;
+  }
+
+}
+
+.about {
+  background-color:azure;
+  width: 100%;
+  padding: 7rem 3rem;
+  padding-bottom: 12rem;
+  h2 {
+    font-size: 3rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+  }
+  p {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+.recommend {
+  padding: 7rem;
+  height: 800px;
+  h2 {
+    font-size: 3rem;
+    margin-left: 2rem;
+    margin-bottom: 4rem;
+    margin-top: 3rem;
+  }
+  img {
+    max-width: 100%;
+    border-radius:50%;
+
+  }
+  .re-1,.re-2,.re-3 {
+    margin: 0 auto;
+  }
+  p {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.2rem;
+  }
+  .botan {
+    margin-top: 8rem;
+  }
+
+}
+

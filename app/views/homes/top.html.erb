@@ -1,0 +1,39 @@
+<div class="photo">
+  <h1>数学を解こう。<br>
+    作ろう。
+  </h1>
+  <%= link_to new_user_registration_path do %>
+    <button class="btn btn-success btn-lg">始める</button>
+  <% end %>
+</div>
+<div class="about">
+  <h2>スウダイとは？</h2>
+  <p>スウダイは、数学愛好家のためのSNS。<br>
+    解くだけじゃない。<br>
+    問題そのものを考えるのだって、楽しい。
+  </p>
+</div>
+<div class="recommend">
+  <h2>こんな人におすすめ</h2>
+  <div class="container">
+    <div class="row">
+      <div class="re-1 col-sm">
+        <img src="assets/chess.jpeg" alt="">
+        <p>学校の授業だけじゃ足りない学生</p>
+      </div>
+      <div class="re-2 col-sm">
+        <img src="assets/chess.jpeg" alt="">
+        <p>教養として学び直したい社会人</p>
+      </div>
+      <div class="re-3 col-sm">
+        <img src="assets/chess.jpeg" alt="">
+        <p>普段問題を作成している先生</p>
+      </div>
+    </div>
+  </div>
+  <div class="botan d-grid col-1 mx-auto">
+    <%= link_to "さっそく始める", new_user_registration_path, class:"btn btn-success btn-lg" %>
+  </div>
+
+</div>
+
