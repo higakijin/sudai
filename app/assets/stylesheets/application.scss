@@ -32,6 +32,11 @@
     padding-top: 10%;
     padding-left: 10%;
   }
+  .sing_m {
+    font-size: 5rem;
+    padding-top: 10%;
+    padding-left: 10%;
+  }
 
   button {
     margin-top: 15rem;
@@ -83,6 +88,24 @@
   .botan {
     margin-top: 8rem;
   }
-
 }
 
+table {
+  display: flex;
+  justify-content: center;
+  border-collapse: separate;
+  border-spacing: 30px;
+
+  .content-r {
+    float: right;
+  }
+}
+
+.text-r {
+  text-align: right;
+}
+
+.login_here {
+  margin-top: 2rem;
+  margin-right: 250px;
+}
