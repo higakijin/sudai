@@ -1,2 +1,15 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<%= link_to "投稿する", new_post_path, class:"btn btn-primary" %>
+<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback:"no_image.jpg", size:"60x60" %>
+<br>
+<%= attachment_image_tag @user, :profile_image, :fill, 500, 500, fallback:"no_image.jpg", size:"500x500" %>
+
+
+<%= form_with model:@user, local:true do |f| %>
+  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+  <p>名前：<%= f.text_field :name %>
+  <p>Eメール：<%= f.email_field :email %>
+  <p>年齢：<%= f.number_field :age, min:"0"%>
+  <p>レベル：<%= f.number_field :level, min:"1", max:"7"  %>
+  <p>目標：<%= f.text_area :introduction %>
+  <%= f.submit "更新" %>
+<% end %>

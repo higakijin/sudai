@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root 'homes#top'
-  resources :users
-  resources :posts
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   
   } 
+  resources :users
+  resources :posts
   # devise_scope :user do
   #   get "user/:id", :to => "users/registrations#detail"
   #   get "signup", :to => "users/registrations#new"
