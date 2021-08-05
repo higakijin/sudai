@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if current_user.id == @user.id
     else
-      redirect_to "show"
+      redirect_to user_path(current_user)
     end
   end
 

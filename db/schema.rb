@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210804121627) do
+ActiveRecord::Schema.define(version: 20210805030046) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "level"
+    t.string "level"
     t.string "category"
     t.string "prob_image_id"
     t.string "ans_image_id"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20210804121627) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.integer "level"
+    t.string "level"
     t.integer "age"
     t.text "introduction"
     t.string "profile_image_id"

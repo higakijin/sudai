@@ -1,6 +1,6 @@
 <div class="col-lg-2 float-right mt-3">
   <%= link_to "投稿する", new_post_path, class:"btn btn-primary" %>
   <%= link_to user_path(current_user) do %>
-    <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback:"no_image.jpg", size:"60x60" %>
+    <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback:"no_image.jpg", size:"60x60", class:"ml-3" %>
   <% end %>
 </div>
