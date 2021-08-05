@@ -1,11 +1,33 @@
-<%= link_to "投稿する", new_post_path, class:"btn btn-primary" %>
-<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback:"no_image.jpg", size:"60x60" %>
-<br>
-<%= attachment_image_tag @user, :profile_image, :fill, 30, 30, fallback:"no_image.jpg", size:"500x500" %>
-
-
-<p>名前：<%= @user.name %></p>
-<p>年齢：<%= @user.age %></p>
-<p>レベル：<%= @user.level %></p>
-<p>目標：<%= @user.introduction %></p>
-<p>登録日：<%= @user.created_at %></p>
+<%= render 'layouts/icon' %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-4">
+      <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback:"no_image.jpg", size:"300x300", class:"circle"%>
+    </div>
+    <div class="col-lg-8">
+      <table class="show_table">
+        <tr>
+          <th class="text-r">名前：</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th class="text-r">年齢：</th>
+          <td><%= @user.age %></td>
+        </tr>
+        <tr>
+          <th class="text-r">レベル：</th>
+          <td><%= @user.level %></td>
+        </tr>
+        <tr>
+          <th class="text-r">目標：</th>
+          <td><%= @user.introduction %></td>
+        </tr>
+        <tr>
+          <th class="text-r">登録日：</th>
+          <td><%= @user.created_at.to_s(:datetime_jp) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <hr>
+</div>

@@ -3,7 +3,7 @@
     <h2 class="sing_m">ログイン</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <table>
+      <table class="sign_table">
         <tr>
           <th class="text-r"><%= f.label :Eメール %>：</th>
           <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %></td>

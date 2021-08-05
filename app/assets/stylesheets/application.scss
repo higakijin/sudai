@@ -90,7 +90,7 @@
   }
 }
 
-table {
+.sign_table {
   display: flex;
   justify-content: center;
   border-collapse: separate;
@@ -108,4 +108,18 @@ table {
 .login_here {
   margin-top: 2rem;
   margin-right: 250px;
+}
+
+.show_table {
+  justify-content: center;
+  border-collapse: separate;
+  border-spacing: 15px;
+  margin-top: 40px;
+}
+
+.edit_table {
+  justify-content: center;
+  border-collapse: separate;
+  border-spacing: 15px;
+  margin-top: 30px;
 }
