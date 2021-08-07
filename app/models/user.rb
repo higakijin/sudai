@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :posts, dependent: :destroy
-  attachment :profile_image
+  attachment :profile_image, content_type: ["image/jpeg", "image/png"]
 end

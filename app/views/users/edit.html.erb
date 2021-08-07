@@ -1,40 +1,40 @@
 <%= form_with model:@user, local:true do |f| %>
   <div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-4 mt-3">
-          <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback:"no_image.jpg", size:"300x300", class:"mb-5" %>
-          <%= f.attachment_field :profile_image , placeholder: "画像をアップロード" %>
-        </div>
-        <div class="col-lg-8">
-          <table class="edit_table">
-            <tr>
-              <th class="text-r">名前：</th>
-              <td><%= f.text_field :name, class:"form-control" %></td>
-            </tr>
-            <tr>
-              <th class="text-r">Eメール：</th>
-              <td><%= f.email_field :email, class:"form-control" %></td>
-            </tr>
-            <tr>
-              <th class="text-r">年齢：</th>
-              <td><%= f.number_field :age, min:"0", class:"form-control" %></td>
-            </tr>
-            <tr>
-              <th class="text-r">レベル：</th>
-              <td>
-                <%= f.select :level, [["レベル1（中学）", "レベル1（中学）"], ["レベル2（中卒）", "レベル2（中卒）"],["レベル3（高校）","レベル3（高校）"],["レベル4（高卒）", "レベル4（高卒）"],["レベル5（大学）", "レベル5（大学）"], ["レベル6（研究者）", "レベル6（研究者）"],["レベル7（達人）","レベル7（達人）"]], { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
-              </td>
-            </tr>
-            <tr>
-              <th class="text-r">目標：</th>
-              <td><%= f.text_area :introduction, class:"form-control", rows:"3" %></td>
-            </tr>
-            <tr>
-              <th></th>
-              <td><%= f.submit "更新", class:"float-right btn btn-success" %></td>
-            </tr>
-          </table>
-        </div>
+    <div class="row mx-auto">
+      <div class="col-lg-4 mt-3">
+        <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback:"no_image.jpg", size:"300x300", class:"mb-5" %>
+        <%= f.attachment_field :profile_image , placeholder: "画像をアップロード" %>
+      </div>
+      <div class="col-lg-8">
+        <table class="edit_table">
+          <tr>
+            <th class="text-r">名前：</th>
+            <td><%= f.text_field :name, class:"form-control" %></td>
+          </tr>
+          <tr>
+            <th class="text-r">Eメール：</th>
+            <td><%= f.email_field :email, class:"form-control" %></td>
+          </tr>
+          <tr>
+            <th class="text-r">年齢：</th>
+            <td><%= f.number_field :age, min:"0", class:"form-control" %></td>
+          </tr>
+          <tr>
+            <th class="text-r">レベル：</th>
+            <td>
+              <%= f.select :level, [["レベル1（中学）", "レベル1（中学）"], ["レベル2（中卒）", "レベル2（中卒）"],["レベル3（高校）","レベル3（高校）"],["レベル4（高卒）", "レベル4（高卒）"],["レベル5（大学）", "レベル5（大学）"], ["レベル6（研究者）", "レベル6（研究者）"],["レベル7（達人）","レベル7（達人）"]], { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+            </td>
+          </tr>
+          <tr>
+            <th class="text-r">目標：</th>
+            <td><%= f.text_area :introduction, class:"form-control", rows:"3" %></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><%= f.submit "更新", class:"float-right btn btn-success" %></td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 <% end %>

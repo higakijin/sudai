@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
-  attachment :prob_image
-  attachment :ans_image
+  attachment :prob_image, content_type: ["image/jpeg", "image/png"]
+  attachment :ans_image, content_type: ["image/jpeg", "image/png"]
 
   validates :level, presence: true
   validates :category, presence: true

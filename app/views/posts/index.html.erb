@@ -1,3 +1,7 @@
 <%= render 'layouts/icon' %>
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+
+<% @posts.each do |p| %>
+  <%= attachment_image_tag User.find(p.user_id), :profile_image, :fill, 60, 60, fallback:"no_image.jpg", size:"60x60" %>
+  <%= User.find(p.user_id).name %>
+  <%= attachment_image_tag p, :prob_image, :fill, 600, 600, fallback:"no_image.jpg", size:"600x600" %>
+<% end %>

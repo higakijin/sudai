@@ -3,23 +3,23 @@
     <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback:"no_image.jpg", size:"60x60" %>
   <% end %>
 </div>
-<div class="container">
+<div class="container form-margin">
   <%= form_with model:@post, local:true do |f| %>
-    <table class="edit_table">
+    <table class="edit_table mx-auto">
       <tr>
-        <th>難易度：</th>
+        <th class="text-r">難易度：</th>
         <td><%= f.select :level, [["レベル1（中学）", "レベル1（中学）"], ["レベル2（中卒）", "レベル2（中卒）"],["レベル3（高校）","レベル3（高校）"],["レベル4（高卒）", "レベル4（高卒）"],["レベル5（大学）", "レベル5（大学）"], ["レベル6（研究者）", "レベル6（研究者）"],["レベル7（達人）","レベル7（達人）"]], { include_blank: '選択してください'}, { class: 'form-control' , required: true } %></td>
       </tr>
       <tr>
-        <th>分野：</th>
+        <th class="text-r">分野：</th>
         <td><%= f.text_field :category, class:"form-control" %></td>
       </tr>
       <tr>
-        <th>問題：</th>
+        <th class="text-r">問題：</th>
         <td><%= f.attachment_field :prob_image, placeholder:"問題を投稿" %></td>
       </tr>
       <tr>
-        <th>解答：</th>
+        <th class="text-r">解答：</th>
         <td><%= f.attachment_field :ans_image, placeholder:"解答を投稿" %></td>
       </tr>
       <tr>
