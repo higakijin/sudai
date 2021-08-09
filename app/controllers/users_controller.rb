@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = Post.where(user_id: @user.id)
+    
   end
 
   def edit
@@ -14,9 +16,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(current_user)
+    if @user.update(user_params)
+      redirect_to user_path(current_user)
+    else
+      render edit_user_path(current_user)
+    end
   end
+
 
   private
 

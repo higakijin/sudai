@@ -1,11 +1,12 @@
 <div class="container c-index">
-  <%= render 'layouts/icon' %>
+  <div class="row float-right mt-3">
+    <%= render 'layouts/icon' %>
+  </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-2"></div>
-    <div class="col-4">
-      <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback:"no_image.jpg", size:"300x300", class:"circle mb-3"%>
+    <div class="col-4 offset-2">
+      <%= attachment_image_tag @user, :profile_image, :fill, 300, 300, fallback:"no_image.jpg", size:"300x300", class:"mb-3"%>
     </div>
     <div class="col-6">
       <table class="show_table">
@@ -33,4 +34,37 @@
     </div>
   </div>
   <hr>
+  <% @posts.each do |p| %>
+    <div class="row mt-5">
+      <div class="col-2 offset-1 clear-fix">
+        <div class="profile float-right">
+          <%= link_to user_path(p.user_id) do %>
+            <%= attachment_image_tag User.find(p.user_id), :profile_image, :fill, 80, 80, fallback:"no_image.jpg", size:"80x80" %>
+            <p class="user-name"><%= User.find(p.user_id).name %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-6 main-content in-b">
+        <div class="content">
+          <%= p.level %>：<%= p.category %>
+          <% if p.user_id == current_user.id %>
+            <%= link_to "削除", post_path(p.id), method: :delete, class:"btn btn-danger btn-sm mb-1 mr-5 float-right" %>
+          <% end %>
+        </div>
+        <div class="content">
+          <%= link_to post_path(p.id) do %>
+            <%= attachment_image_tag p, :prob_image, class:"prob_image mx-auto" %>
+          <% end %>  
+        </div>
+        <div class="content float-right mr-5 mt-2 mb-3">
+          <%= p.created_at.to_s(:datetime_jp) %>
+        </div>
+      </div>
+      <div class="col-3">
+        <p><i class="fa fa-comment-o"></i> コメント数</p>
+        <p><i class="far fa-star"></i> 星</p>
+      </div>
+    </div>
+    <hr>
+    <% end %>
 </div>

@@ -124,12 +124,11 @@
   margin-top: 30px;
 }
 
-.form-margin {
-  margin-top: 100px;
-}
 
-.prob_image {
-  max-width: 500px;
+
+.prob_image, .ans_image {
+  max-width: 100%;
+  min-width: 80%;
 }
 
 .profile {
@@ -148,3 +147,4 @@
 .in-b {
   display: inline-block;
 }
+
