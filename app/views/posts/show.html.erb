@@ -14,7 +14,6 @@
   </div>
 </div>
 <div class="container mb-3">
-  
   <div class="row">
     <div class="col-2 clearfix">
       <%= link_to user_path(@post.user_id) do %>
@@ -26,7 +25,9 @@
       <p class="user-name"><%= User.find(@post.user_id).name %></p>
     </div>
     <div class="col-3 offset-4">
-      <h6><i class="fa fa-comment-o"></i> コメント数</h6>
+      <%= link_to post_path(@post.id) do %>
+        <p><i class="fa fa-comment-o"></i><%= @post.comments.count %></p>
+      <% end %>
       <% if @post.liked_by?(current_user) %>
         <p>
           <%= link_to post_likes_path(@post), method: :delete do %>
@@ -40,26 +41,65 @@
           <% end %>
         </p>
       <% end %>
-      <h6><i class="far fa-star"></i> いいね数</h6>
     </div>
   </div>
   <div class="row">
     <div class="col-8 offset-2">
       <%= attachment_image_tag @post, :prob_image, class:"prob_image mx-auto" %>
     </div>
-  </div>
-    
+  </div>  
   <details class="row">
     <summary class="col-1 offset-9 my-3 btn btn-sm btn-info">答えを見る</summary>
-
     <div class="col-8 offset-2">
       <%= attachment_image_tag @post, :ans_image, class:"ans_image mx-auto" %>
     </div>
-
   </details>
-  
 </div>
 <div class="container">
   <hr>
+</div>
+<% @post.comments.each do |c| %>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-1 offset-2">
+        <%= link_to user_path(c.user_id) do %>
+          <%= attachment_image_tag User.find(c.user_id), :profile_image, :fill, 70, 70, fallback:"no_image.jpg", size:"70x70", class:"float-right" %>
+        <% end %>
+      </div>
+      <div class="col-7">
+        <div class="row">
+          <div class="col-2 clear-fix"><p class="float-left" style="font-size: 15px;"><%= c.user.name %></p></div>
+          <div class="col-9 clear-fix">
+            <div class="text-secondary  float-right"><%= c.created_at.to_s(:datetime_jp) %></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-10">
+            <%= safe_join(c.comment.split("\n"),tag(:br))%>
+          </div>
+          <div class="col-2">
+          <% if c.user == current_user %>
+            <%= link_to "削除", post_comment_path(c.post, c), method: :delete %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
 
+  </div>
+<% end %>
+
+<div class="container">
+  <%= form_with(model:[@post, @comment], local:true) do |f| %>
+    <div class="row">
+      <div class="col-6 offset-3 mt-5">
+        <%= f.text_area :comment, rows:'3', placaholder:"コメント", class:"form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1 offset-9">
+        <%= f.submit "送信する", class:"btn btn-success btn-sm mt-4" %>
+      </div>
+    </div>
+  <% end %>
 </div>

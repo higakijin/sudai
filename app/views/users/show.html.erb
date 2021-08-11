@@ -61,8 +61,22 @@
         </div>
       </div>
       <div class="col-3">
-        <p><i class="fa fa-comment-o"></i> コメント数</p>
-        <p><i class="far fa-star"></i> 星</p>
+        <%= link_to post_path(p.id) do %>
+          <p><i class="fa fa-comment-o"></i><%= p.comments.count %></p>
+        <% end %>
+        <% if p.liked_by?(current_user) %>
+          <p>
+            <%= link_to post_likes_path(p.id), method: :delete do %>
+              <h6>★<%= p.likes.count %></h6>
+            <% end %>
+          </p>
+        <% else %>
+          <p>
+            <%= link_to post_likes_path(p.id), method: :post do %>
+              <h6>☆<%= p.likes.count %></h6>
+            <% end %>
+          </p>
+        <% end %>
       </div>
     </div>
     <hr>

@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   belongs_to :user
   attachment :prob_image, content_type: ["image/jpeg", "image/png"]
   attachment :ans_image, content_type: ["image/jpeg", "image/png"]

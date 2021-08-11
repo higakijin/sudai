@@ -3,6 +3,10 @@ class PostsController < ApplicationController
     @posts = Post.all.order(id: "DESC")
   end
 
+  def favo
+    @likes = Like.where(user_id: current_user).order(id: "DESC")
+  end
+
   def new
     @post = Post.new
   end
@@ -19,6 +23,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def destroy
