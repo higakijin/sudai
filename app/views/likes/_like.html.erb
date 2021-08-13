@@ -1,0 +1,9 @@
+<% if p.liked_by?(current_user) %>
+  <%= link_to post_likes_path(p.id), class:"nav-link text-warning", method: :delete, remote: true do %>
+    <p><i class="fas fa-star"></i> <%= p.likes.count %></p>
+  <% end %>
+<% else %>
+  <%= link_to post_likes_path(p.id), class:"nav-link", method: :post, remote: true do %>
+    <p><i class="far fa-star"></i> <%= p.likes.count %></p>
+  <% end %>
+<% end %>

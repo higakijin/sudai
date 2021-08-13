@@ -21,14 +21,13 @@
 // }
 
 .photo {
-  background-image: url('/assets/chess.jpeg');
+  background-image: url('/assets/math.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   height: 1200px;
   h1 {
     font-size: 7rem;
-    color: white;
     padding-top: 10%;
     padding-left: 10%;
   }
@@ -148,3 +147,7 @@
   display: inline-block;
 }
 
+.circle {
+  border-radius: 50%;
+  border: 1px solid #DDDDDD;
+}
