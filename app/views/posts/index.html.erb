@@ -1,17 +1,6 @@
 <div class="container c-index">
-  <label for="level-select">難易度：</label>
-  <select name="level" id="seleceLevel">
-    <option id="">指定なし</option>
-    <option id="レベル1（中学）">レベル1（中学）</option>
-    <option id="レベル2（中卒）">レベル2（中卒）</option>
-    <option id="レベル3（高校）">レベル3（高校）</option>
-    <option id="レベル4（高卒）">レベル4（高卒）</option>
-    <option id="レベル5（大学）">レベル5（大学）</option>
-    <option id="レベル6（研究者）">レベル6（研究者）</option>
-    <option id="レベル7（達人）">レベル7（達人）</option>
-  </select>
-  <span>並び順</span>
   <div class="row float-right mt-3">
+
     <%= render 'layouts/icon' %>
   </div>
 </div>
@@ -31,7 +20,7 @@
           <div class="content mb-2">
             <%= p.level %>：<%= p.category %>
             <% if p.user_id == current_user.id %>
-              <%= link_to "削除", post_path(p.id), method: :delete, class:"btn btn-danger btn-sm mb-1 mr-5 float-right" %>
+              <%= link_to "削除", post_path(p.id), method: :delete, class:"btn btn-danger btn-sm mb-1 mr-5 float-right", data: { confirm: "【確認】削除してもよろしいですか？" } %>
             <% end %>
           </div>
           <div class="content">
@@ -44,9 +33,11 @@
           </p>
         </div>
         <div class="col-3">
-          <%= link_to post_path(p.id), class:"nav-link" do %>
-            <p><i class=" fa fa-comment-o"></i> <%= p.comments.count %></p>
-          <% end %>
+          <div id="com_count_<%= p.id %>">
+            <%= link_to post_path(p.id), class:"nav-link" do %>
+              <p><i class="fa fa-comment-o"></i> <%= p.comments.count %></p>
+            <% end %>
+          </div>
           <div id="likes_buttons_<%= p.id %>" > 
             <%= render partial: "likes/like", locals: {p: p} %>
           </div>

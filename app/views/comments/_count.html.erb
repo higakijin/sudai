@@ -1,0 +1,3 @@
+<%= link_to post_path(@post.id), class:"nav-link" do %>
+  <p><i class="fa fa-comment-o"></i> <%= @post.comments.count %></p>
+<% end %>

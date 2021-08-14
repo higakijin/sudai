@@ -48,7 +48,7 @@
         <div class="content">
           <%= p.level %>：<%= p.category %>
           <% if p.user_id == current_user.id %>
-            <%= link_to "削除", post_path(p.id), method: :delete, class:"btn btn-danger btn-sm mb-1 mr-5 float-right" %>
+            <%= link_to "削除", post_path(p.id), method: :delete, class:"btn btn-danger btn-sm mb-1 mr-5 float-right", data: { confirm: "【確認】削除してもよろしいですか？" } %>
           <% end %>
         </div>
         <div class="content">
@@ -56,7 +56,7 @@
             <%= attachment_image_tag p, :prob_image, class:"prob_image mx-auto" %>
           <% end %>  
         </div>
-        <div class="content float-right mr-5 mt-2 mb-3 text-muted">
+        <div class="content float-right mr-5 mt-2 mb-3 text-muted" style="font-size: 13px;">
           <%= p.created_at.to_s(:datetime_jp) %>
         </div>
       </div>

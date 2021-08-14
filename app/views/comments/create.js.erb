@@ -1,0 +1,2 @@
+$('#comments_<%= @post.id %>').html("<%= j(render partial: 'comments/comment' ) %>");
+$('#com_count_<%= @post.id %>').html("<%= j(render partial: 'comments/count')%>");

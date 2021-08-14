@@ -36,9 +36,9 @@
       </div>  
     </div>
     <div class="col-3">
-      <%= link_to post_path(@post.id), class:"nav-link" do %>
-        <p><i class="fa fa-comment-o"></i> <%= @post.comments.count %></p>
-      <% end %>
+      <div id="com_count_<%= @post.id %>">
+        <%= render partial: "comments/count" %>
+      </div>
       <div id="likes_buttons_<%= @post.id %>" > 
         <%= render partial: "likes/like", locals: {p: @post} %>
       </div>
@@ -55,52 +55,8 @@
 <div class="container">
   <hr>
 </div>
-<% @post.comments.each do |c| %>
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col-1 offset-2">
-        <%= link_to user_path(c.user_id) do %>
-          <%= attachment_image_tag User.find(c.user_id), :profile_image, :fill, 70, 70, fallback:"no_image.jpg", size:"70x70", class:"float-right circle" %>
-        <% end %>
-      </div>
-      <div class="col-7">
-        <div class="row">
-          <div class="col-2 clear-fix"><p class="float-left" style="font-size: 15px;"><%= c.user.name %></p></div>
-          <div class="col-8 clear-fix">
-            <div class="text-secondary  float-right" style="font-size: 13px;"><%= c.created_at.to_s(:datetime_jp) %></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-10">
-            <%= safe_join(c.comment.split("\n"),tag(:br))%>
-          </div>
-          <div class="col-2">
-          <% if c.user == current_user %>
-            <%= link_to "削除", post_comment_path(c.post, c), method: :delete, class:"btn btn-danger btn-sm" %>
-          <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
-<div class="container">
-  <% if @post.comments.count == 0 %>
-    <p>コメントはありません</p>
-  <% end %>
-  <hr>
-</div>
-<div class="container">
-  <%= form_with(model:[@post, @comment], local:true) do |f| %>
-    <div class="row">
-      <div class="col-6 offset-3 mt-5">
-        <%= f.text_area :comment, rows:'3', placaholder:"コメント", class:"form-control" %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1 offset-9">
-        <%= f.submit "コメントする", class:"btn btn-success btn-sm mt-4" %>
-      </div>
-    </div>
-  <% end %>
+
+
+<div id="comments_<%= @post.id %>">
+  <%= render partial: 'comments/comment' %>
 </div>
