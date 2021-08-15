@@ -22,10 +22,10 @@
     </div>
     <div class="col-7">
       <div class="row">
-        <div class="col-4">
+        <div class="col-6">
           <p class="user-name"><%= User.find(@post.user_id).name %></p>
         </div>
-        <div class="col-7 clear-fix">
+        <div class="col-5 clear-fix">
           <p class="text-secondary float-right" style="font-size: 13px;"><%= @post.created_at.to_s(:datetime_jp) %></p>
         </div>
       </div>
