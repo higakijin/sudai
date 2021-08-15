@@ -4,6 +4,13 @@
   </div>
 </div>
 <div class="container">
+<% if @likes.count == 0 %>
+  <div class="row">
+    <div class="col">
+      お気に入りはありません
+    </div>
+  </div>
+<% end %>
   <% @likes.each do |l| %>
     <% Post.where(id: l.post_id).each do |p| %>
       <div class="teims <%= p.level %> mb-5">
