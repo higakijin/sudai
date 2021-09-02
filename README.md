@@ -1,4 +1,5 @@
 「スウダイ」という、数学の問題を共有するアプリです。
+[Herokuはこちらです](https://sudai2.herokuapp.com/posts)
 
 問題の詳細ページ
 ![](https://user-images.githubusercontent.com/76689059/131854548-0cd16dd3-e00f-47ed-8028-752237755ca8.png)
